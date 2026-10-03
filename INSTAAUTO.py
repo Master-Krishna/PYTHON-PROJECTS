@@ -3,8 +3,6 @@ from instabot import Bot
 #store the function Bot 
 bot = Bot()
 
-
-
 #using the follow function to follow the user
 follow_user = input("Enter the username of the user you want to follow:- ")
 bot.follow(follow_user)
@@ -39,3 +37,29 @@ if openinsta.lower() == "yes":
 
     else:
         print("your Account is opened successfully")
+
+    print("You can now use the bot to perform various actions on Instagram.")
+    print("Please choose an action from the following options:")
+    print("1. Follow a user press 1:- ")
+    print("2. Upload a photo press 2:- ")
+    print("3. Unfollow a user press 3:- ")
+    print("4. Send a message press 4:- ")
+
+    try:
+        option = int(input("Enter your choice:- "))
+
+        if option == 1:
+            pass
+        elif option == 2:
+            pass
+        elif option == 3:
+            pass
+        elif option == 4:
+            pass
+
+    except Exception as err:
+        print("An error occurred while processing your choice. Please make sure to enter a valid option.")
+        print("Invalid option selected. Please try again.")
+
+    else:
+        print("Thank you for using the Instagram bot")
