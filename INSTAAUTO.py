@@ -3,10 +3,7 @@ from instabot import Bot
 #store the function Bot 
 bot = Bot()
 
-#using the login function to login to the account
-username = input("Enter your username:- ")
-Password = input("Enter your Password:- ")
-bot.login(username=username, password=Password)
+
 
 #using the follow function to follow the user
 follow_user = input("Enter the username of the user you want to follow:- ")
@@ -26,3 +23,19 @@ username_to_message = input("Enter the username of the user you want to send a m
 message = input("Enter the message you want to send:- ")
 bot.send_message(message, username_to_message)
 
+openinsta = input("Do you want to open Instagram? (yes/no):- ")
+
+if openinsta.lower() == "yes":
+    #using the login function to login to the account
+    print("Opening Instagram...")
+    print("Please enter your login details to open your Account:")
+    username = input("Enter your username:- ")
+    Password = input("Enter your Password:- ")
+    try:
+        bot.login(username=username, password=Password)
+
+    except Exception as err:
+        print(f"An error occurred {err}")
+
+    else:
+        print("your Account is opened successfully")
