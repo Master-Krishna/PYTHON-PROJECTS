@@ -3,9 +3,18 @@ from instabot import Bot
 #store the function Bot 
 bot = Bot()
 
-#using the follow function to follow the user
-follow_user = input("Enter the username of the user you want to follow:- ")
-bot.follow(follow_user)
+def FOLLOW(username):
+    try:
+        #using the follow function to follow the user
+        bot.follow(username)
+        
+    except Exception as err:
+        print(f"An error occurred as {err}")
+
+    else:
+        print("Following successfully...")
+
+
 
 #using the upload_photo function to upload the photo with caption
 upload_photo = input("Enter the path of the photo you want to upload:- ")
@@ -49,7 +58,8 @@ if openinsta.lower() == "yes":
         option = int(input("Enter your choice:- "))
 
         if option == 1:
-            pass
+            username_to_follow = input("Enter the username of the user you want to follow:- ")
+            FOLLOW(username_to_follow)
         elif option == 2:
             pass
         elif option == 3:
