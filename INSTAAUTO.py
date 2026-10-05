@@ -14,6 +14,13 @@ def FOLLOW(username):
     else:
         print("Following successfully...")
 
+def PHOTO(upload_photo,caption):
+    try:
+        bot.upload_photo(upload_photo,caption)
+    except Exception as err:
+        print(f"An error occurred as {err}")
+    else:
+        print("Uploading photo in your Account as successful")
 
 
 #using the upload_photo function to upload the photo with caption
@@ -60,8 +67,15 @@ if openinsta.lower() == "yes":
         if option == 1:
             username_to_follow = input("Enter the username of the user you want to follow:- ")
             FOLLOW(username_to_follow)
+
+            
         elif option == 2:
-            pass
+            upload_photo = input("Enter the path of your photo:- ")
+            options = int(input("If you want to write a caption press 1 and no press 2:- "))
+            if option == 1:
+                caption = input("Enter your caption here:- ")
+                PHOTO(upload_photo,caption)
+
         elif option == 3:
             pass
         elif option == 4:
