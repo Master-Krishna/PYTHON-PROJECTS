@@ -1,46 +1,49 @@
 from instabot import Bot
 
-
 #store the function Bot 
 bot = Bot()
 
-def FOLLOW(username):
-    try:
-        #using the follow function to follow the user
-        bot.follow(username)
-        
-    except Exception as err:
-        print(f"An error occurred as {err}")
 
-    else:
-        print("Following successfully...")
+class insta:
 
-def PHOTO(upload_photo,caption = ''):
-    try:
-        #using the upload_photo function to upload the photo with caption
-        bot.upload_photo(upload_photo,caption)
-    except Exception as err:
-        print(f"An error occurred as {err}")
-    else:
-        print("Uploading photo in your Account as successful")
 
-def UNFOLLOW(username):
-    try:
-        #using the unfollow function to unfollow the user
-        bot.unfollow(username)
-    except Exception as err:
-        print(f"An error occurred as {err}")
-    else:
-        print("Successfully unfollow")
+    def FOLLOW(username):
+        try:
+            #using the follow function to follow the user
+            bot.follow(username)
+            
+        except Exception as err:
+            print(f"An error occurred as {err}")
 
-def MESSAGE(message,username):
-    try:
-        #using the send_message function to send a message to the user
-        bot.send_message(message,username)
-    except Exception as err :
-        print(f"An error occurred as {err}")
-    else:
-        print("Successfully send a message...")
+        else:
+            print("Following successfully...")
+
+    def PHOTO(upload_photo,caption = ''):
+        try:
+            #using the upload_photo function to upload the photo with caption
+            bot.upload_photo(upload_photo,caption)
+        except Exception as err:
+            print(f"An error occurred as {err}")
+        else:
+            print("Uploading photo in your Account as successful")
+
+    def UNFOLLOW(username):
+        try:
+            #using the unfollow function to unfollow the user
+            bot.unfollow(username)
+        except Exception as err:
+            print(f"An error occurred as {err}")
+        else:
+            print("Successfully unfollow")
+
+    def MESSAGE(message,username):
+        try:
+            #using the send_message function to send a message to the user
+            bot.send_message(message,username)
+        except Exception as err :
+            print(f"An error occurred as {err}")
+        else:
+            print("Successfully send a message...")
 
 
 openinsta = input("Do you want to open Instagram? (yes/no):- ")
@@ -66,13 +69,15 @@ if openinsta.lower() == "yes":
     print("2. Upload a photo press 2:- ")
     print("3. Unfollow a user press 3:- ")
     print("4. Send a message press 4:- ")
+    
+    instagram = insta()
 
     try:
         option = int(input("Enter your choice:- "))
 
         if option == 1:
             username_to_follow = input("Enter the username of the user you want to follow:- ")
-            FOLLOW(username_to_follow)
+            instagram.FOLLOW(username_to_follow)
 
             
         elif option == 2:
@@ -80,17 +85,17 @@ if openinsta.lower() == "yes":
             options = int(input("If you want to write a caption press 1 and no press 2:- "))
             if option == 1:
                 caption = input("Enter your caption here:- ")
-                PHOTO(upload_photo,caption)
+                instagram.PHOTO(upload_photo,caption)
             else:
-                PHOTO(upload_photo)
+                instagram.PHOTO(upload_photo)
 
         elif option == 3:
             username_to_unfollow = input("Enter the username that you want to unfollow:- ")
-            UNFOLLOW(username_to_unfollow)
+            instagram.UNFOLLOW(username_to_unfollow)
         elif option == 4:
             username = input("Enter the username that you want to send a message:- ")
             Message = input("Write your message here:- ")
-            MESSAGE()
+            instagram.MESSAGE()
 
     except Exception as err:
         print("An error occurred while processing your choice. Please make sure to enter a valid option.")
