@@ -95,10 +95,10 @@ if openinsta.lower() == "yes":
         elif option == 4:
             username = input("Enter the username that you want to send a message:- ")
             Message = input("Write your message here:- ")
-            instagram.MESSAGE()
+            instagram.MESSAGE(Message, username)
 
     except Exception as err:
-        print("An error occurred while processing your choice. Please make sure to enter a valid option.")
+        print(f"An error occurred as {err} while processing your choice. Please make sure to enter a valid option.")
         print("Invalid option selected. Please try again.")
 
     else:
