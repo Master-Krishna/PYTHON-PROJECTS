@@ -1,5 +1,6 @@
 from instabot import Bot
 
+
 #store the function Bot 
 bot = Bot()
 
@@ -14,28 +15,33 @@ def FOLLOW(username):
     else:
         print("Following successfully...")
 
-def PHOTO(upload_photo,caption):
+def PHOTO(upload_photo,caption = ''):
     try:
+        #using the upload_photo function to upload the photo with caption
         bot.upload_photo(upload_photo,caption)
     except Exception as err:
         print(f"An error occurred as {err}")
     else:
         print("Uploading photo in your Account as successful")
 
+def UNFOLLOW(username):
+    try:
+        #using the unfollow function to unfollow the user
+        bot.unfollow(username)
+    except Exception as err:
+        print(f"An error occurred as {err}")
+    else:
+        print("Successfully unfollow")
 
-#using the upload_photo function to upload the photo with caption
-upload_photo = input("Enter the path of the photo you want to upload:- ")
-caption = input("Enter the caption for the photo:- ")
-bot.upload_photo(upload_photo, caption=caption)
+def MESSAGE(message,username):
+    try:
+        #using the send_message function to send a message to the user
+        bot.send_message(message,username)
+    except Exception as err :
+        print(f"An error occurred as {err}")
+    else:
+        print("Successfully send a message...")
 
-#using the unfollow function to unfollow the user
-username_to_unfollow = input("Enter the username of the user you want to unfollow:- ")
-bot.unfollow(username_to_unfollow)
-
-#using the send_message function to send a message to the user
-username_to_message = input("Enter the username of the user you want to send a message to:- ")
-message = input("Enter the message you want to send:- ")
-bot.send_message(message, username_to_message)
 
 openinsta = input("Do you want to open Instagram? (yes/no):- ")
 
@@ -75,11 +81,16 @@ if openinsta.lower() == "yes":
             if option == 1:
                 caption = input("Enter your caption here:- ")
                 PHOTO(upload_photo,caption)
+            else:
+                PHOTO(upload_photo)
 
         elif option == 3:
-            pass
+            username_to_unfollow = input("Enter the username that you want to unfollow:- ")
+            UNFOLLOW(username_to_unfollow)
         elif option == 4:
-            pass
+            username = input("Enter the username that you want to send a message:- ")
+            Message = input("Write your message here:- ")
+            MESSAGE()
 
     except Exception as err:
         print("An error occurred while processing your choice. Please make sure to enter a valid option.")
