@@ -3,7 +3,6 @@ from instabot import Bot
 #store the function Bot 
 bot = Bot()
 
-
 class insta:
 
 
@@ -69,6 +68,8 @@ if openinsta.lower() == "yes":
     print("2. Upload a photo press 2:- ")
     print("3. Unfollow a user press 3:- ")
     print("4. Send a message press 4:- ")
+    print('5. Logout your Account press 5:- ')
+    
     
     instagram = insta()
 
@@ -97,6 +98,9 @@ if openinsta.lower() == "yes":
             username = input("Enter the username that you want to send a message:- ")
             Message = input("Write your message here:- ")
             instagram.MESSAGE(Message, username)
+
+        elif option == 5:
+            bot.logout()
 
     except Exception as err:
         print(f"An error occurred as {err} while processing your choice. Please make sure to enter a valid option.")
