@@ -7,7 +7,7 @@ bot = Bot()
 class insta:
 
 
-    def FOLLOW(username):
+    def FOLLOW(self, username):
         try:
             #using the follow function to follow the user
             bot.follow(username)
@@ -18,7 +18,7 @@ class insta:
         else:
             print("Following successfully...")
 
-    def PHOTO(upload_photo,caption = ''):
+    def PHOTO(self, upload_photo,caption = ''):
         try:
             #using the upload_photo function to upload the photo with caption
             bot.upload_photo(upload_photo,caption)
@@ -27,7 +27,7 @@ class insta:
         else:
             print("Uploading photo in your Account as successful")
 
-    def UNFOLLOW(username):
+    def UNFOLLOW(self, username):
         try:
             #using the unfollow function to unfollow the user
             bot.unfollow(username)
@@ -36,7 +36,7 @@ class insta:
         else:
             print("Successfully unfollow")
 
-    def MESSAGE(message,username):
+    def MESSAGE(self, message, username):
         try:
             #using the send_message function to send a message to the user
             bot.send_message(message,username)
@@ -92,6 +92,7 @@ if openinsta.lower() == "yes":
         elif option == 3:
             username_to_unfollow = input("Enter the username that you want to unfollow:- ")
             instagram.UNFOLLOW(username_to_unfollow)
+            
         elif option == 4:
             username = input("Enter the username that you want to send a message:- ")
             Message = input("Write your message here:- ")
